@@ -1,20 +1,60 @@
 {
-    "database": "LibraryDB",
-    "tables": [
-      {
-        "name": "authors",
-        "columns": [
-          {
-            "name": "first_name",
-            "type": "VARCHAR(50)",
-            "constraints": ["NOT NULL"]
-          },
-          {
-            "name": "last_name",
-            "type": "VARCHAR(50)",
-            "constraints": ["NOT NULL"]
-          }
-        ]
-      }
-    ]
-  }
+  "database": "LibraryDB",
+  "tables": [
+    {
+      "name": "authors",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "constraints": ["PRIMARY KEY", "AUTOINCREMENT"]
+        },
+        {
+          "name": "first_name",
+          "type": "VARCHAR(50)",
+          "constraints": ["NOT NULL"]
+        },
+        {
+          "name": "last_name",
+          "type": "VARCHAR(50)",
+          "constraints": ["NOT NULL"]
+        },
+        {
+          "name": "birth_date",
+          "type": "DATE",
+          "constraints": []
+        }
+      ]
+    },
+    {
+      "name": "books",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "constraints": ["PRIMARY KEY", "AUTOINCREMENT"]
+        },
+        {
+          "name": "title",
+          "type": "VARCHAR(100)",
+          "constraints": ["NOT NULL"]
+        },
+        {
+          "name": "author_id",
+          "type": "INTEGER",
+          "constraints": ["NOT NULL", "FOREIGN KEY REFERENCES authors(id)"]
+        },
+        {
+          "name": "published_date",
+          "type": "DATE",
+          "constraints": []
+        },
+        {
+          "name": "isbn",
+          "type": "VARCHAR(20)",
+          "constraints": ["UNIQUE"]
+        }
+      ]
+    }
+  ]
+}
