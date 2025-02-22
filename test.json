@@ -1,29 +1,20 @@
 {
+    "database": "LibraryDB",
     "tables": [
-    {
-    "name": "users",
-    "columns": [
-        { "name": "user_id", "type": "INTEGER" },
-        { "name": "username", "type": "TEXT" },
-        { "name": "email", "type": "TEXT" }
+      {
+        "name": "authors",
+        "columns": [
+          {
+            "name": "first_name",
+            "type": "VARCHAR(50)",
+            "constraints": ["NOT NULL"]
+          },
+          {
+            "name": "last_name",
+            "type": "VARCHAR(50)",
+            "constraints": ["NOT NULL"]
+          }
+        ]
+      }
     ]
-    },
-    {
-    "name": "orders",
-    "columns": [
-        { "name": "order_id", "type": "INTEGER" },
-        { "name": "user_id", "type": "INTEGER" },
-        { "name": "order_amount", "type": "REAL" },
-        { "name": "order_date", "type": "DATE" }
-    ]
-    },
-    {
-    "name": "products",
-    "columns": [
-        { "name": "product_id", "type": "INTEGER" },
-        { "name": "product_name", "type": "TEXT" },
-        { "name": "price", "type": "REAL" }
-    ]
-    }
-    ]
-}
+  }
