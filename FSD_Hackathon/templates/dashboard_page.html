@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'logo.ico' %}"/>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+
+.navbar {
+    background-color: #1b1b53; /* Navbar background color */
+    overflow: hidden; /* Clear floats */
+    display: flex; 
+    justify-content: space-around; /* Evenly space the items */
+    padding: 10px 0; /* Add some padding for better spacing */
+}
+
+.navbar ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; 
+    margin: 0;
+    display: flex; 
+    justify-content: space-around; /* Evenly space the items */
+    width: 100%; /* Make the ul take full width */
+}
+
+.navbar li {
+    flex: 1; /* Allow each li to take equal space */
+    text-align: center; /* Center text */
+}
+
+.button {
+    display: inline-block; /* Make the button inline-block */
+    padding: 10px 15px; /* Button padding */
+    background-color: #007BFF; /* Button background color */
+    color: white; 
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+
+.dashboard-bar {
+    background-color: #268bff;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.main-content {
+    padding: 20px;
+    text-align: center;
+    background-color: white;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: black;
+}
+</style>
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="{% url 'Dashboard Page' %}" class="button">Home</a></li>
+            <li><a href="{% url 'Employee List Page' %}" class="button">Employee List</a></li>
+            <li><a href="#" class="button">{{ username }}</a></li>
+            <li><a href="{% url 'Logout Page' %}" class="button">Logout</a></li>
+        </ul>
+    </div>
+    
+</body>
+</html>

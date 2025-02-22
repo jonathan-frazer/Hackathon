@@ -1,0 +1,34 @@
+body{
+    background-image: url('login_background.jpg');
+    background-size: cover;
+    background-color: #3b2dff;
+    font-family: Arial, sans-serif;
+}
+
+.container{
+    width: 20vw;
+    background-color: #fff;
+    margin: 10% 40vw;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+form{
+    text-align: center;
+}
+
+input[type="text"], input[type="password"]{
+    width: 100%;
+    padding: 10px 0 10px 0;
+}
+
+input[type="submit"]{
+    background-color: #3b2dff;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 10px 0 0 0;
+}
+
+input[type="submit"]:hover{
+    background-color: #000;
+}

@@ -1,5 +1,5 @@
 """
-ASGI config for FSD_Hackathon project.
+ASGI config for fsd_hackathon project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FSD_Hackathon.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'fsd_hackathon.settings')
 
 application = get_asgi_application()
