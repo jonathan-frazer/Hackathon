@@ -91,6 +91,18 @@
                         <button type="submit" class="btn btn-outline-info w-100">Submit</button>
                     </div>
                 </form>
+                <div class="container mt-4">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-info text-white">
+                            <h5>JSON Response</h5>
+                        </div>
+                        <div class="card-body">
+                            <pre class="bg-light p-3 border rounded" style="white-space: pre-wrap; word-wrap: break-word;">
+                                {{ jsonResponse | safe }}
+                            </pre>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

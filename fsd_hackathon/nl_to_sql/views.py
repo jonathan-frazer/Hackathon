@@ -5,6 +5,7 @@ from django.conf import settings
 from datetime import datetime
 import json
 import yaml
+import re
 
 # Create your views here.
 def login_page(request):
@@ -174,6 +175,13 @@ def get_response(user_input):
     chat_session = setup_session()
     return chat_session.send_message(user_input).text
 
+def extract_json_string(input_string):
+    # Use regex to find the first opening and last closing curly braces
+    match = re.search(r'({.*})', input_string, re.DOTALL)
+    if match:
+        return match.group(1).strip()  # Return the matched JSON string
+    return None  # Return None if no match is found
+
 def dashboard_page(request):
     username = request.session.get('logged_user', False) 
     if not username:
@@ -193,8 +201,9 @@ def dashboard_page(request):
         
         ai_input = f"Query: {userQuery}\nColumns: {json.dumps(schema_data, indent=4)}"
 
-        json_string = get_response(ai_input)
-        
-        print(json_string)
+        response_string = get_response(ai_input)
+        json_string = extract_json_string(response_string)
+
+        return render(request,'dashboard_page.html',{'username':username,'jsonResponse':json_string})
 
     return render(request,'dashboard_page.html',{'username':username})
