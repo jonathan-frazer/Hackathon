@@ -1,11 +1,12 @@
 from django.http import HttpResponse
 from django.shortcuts import render,redirect,get_object_or_404
-from .models import login_details,employee_details
+from .models import login_details
 from django.conf import settings
 from datetime import datetime
 import os
 import random
 import json
+import yaml
 
 # Create your views here.
 def login_page(request):
@@ -41,13 +42,14 @@ def dashboard_page(request):
         jsonFile = request.FILES.get('jsonFile')
 
         # Process the JSON file
-        try:
-            jsonData = jsonFile.read().decode('utf-8')
-            extractedJsonData = json.loads(jsonData)
-        except json.JSONDecodeError:
-            return JsonResponse({'status': 'error', 'message': 'Invalid JSON file.'}, status=400)
-            
+        if jsonFile.name.endswith('.json'):
+            # Read JSON file
+            json_data = json.load(jsonFile)
+            schema_data = yaml.dump(json_data)
+        elif jsonFile.name.endswith('.yaml') or jsonFile.name.endswith('.yml'):
+            schema_data = jsonFile.read().decode('utf-8')
+
         print(userQuery)
-        print(extractedJsonData)
+        print(schema_data)
 
     return render(request,'dashboard_page.html',{'username':username})    
