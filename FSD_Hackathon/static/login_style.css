@@ -1,7 +1,7 @@
 body{
     background-image: url('login_background.jpg');
     background-size: cover;
-    background-color: #3b2dff;
+    background-color: #0dCaf0;
     font-family: Arial, sans-serif;
 }
 
@@ -23,7 +23,7 @@ input[type="text"], input[type="password"]{
 }
 
 input[type="submit"]{
-    background-color: #3b2dff;
+    background-color: #0dCaf0;
     color: #fff;
     padding: 10px 20px;
     margin: 10px 0 0 0;

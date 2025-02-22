@@ -5,6 +5,7 @@ from django.conf import settings
 from datetime import datetime
 import os
 import random
+import json
 
 # Create your views here.
 def login_page(request):
@@ -31,10 +32,22 @@ def logout_page(request):
 
 def dashboard_page(request):
     username = request.session.get('logged_user', False) 
-    if username:
-        return render(request,'dashboard_page.html',{'username':username})
+    if not username:
+        return redirect("Login Page")
     
-    username = request.POST.get('username')
-    password = request.POST.get('password')
+    if request.method == 'POST':
+        #Get Data from the fields
+        userQuery = request.POST.get('userQuery')
+        jsonFile = request.FILES.get('jsonFile')
 
-    return redirect("Login Page")
+        # Process the JSON file
+        try:
+            jsonData = jsonFile.read().decode('utf-8')
+            extractedJsonData = json.loads(jsonData)
+        except json.JSONDecodeError:
+            return JsonResponse({'status': 'error', 'message': 'Invalid JSON file.'}, status=400)
+            
+        print(userQuery)
+        print(extractedJsonData)
+
+    return render(request,'dashboard_page.html',{'username':username})    
