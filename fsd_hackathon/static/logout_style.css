@@ -1,0 +1,36 @@
+body {
+    background-image: url('login_background.jpg');
+    background-size: cover;
+    background-color: #0dCaf0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 20vw;
+    background-color: #fff;
+    margin: 10% auto; /* Center the container */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center; /* Center text within the container */
+}
+
+h2 {
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+p {
+    margin: 20px 0; /* Space around the paragraph */
+}
+
+.button {
+    display: inline-block; /* Make the link look like a button */
+    background-color: #0dCaf0;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.button:hover {
+    background-color: #000; /* Change color on hover */
+}
